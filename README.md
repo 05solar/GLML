@@ -15,6 +15,8 @@
 Agent가 **판단(Thought) → 도구 호출(Action) → 결과 확인(Observation) → 검토 → 최종 추천(Final Answer)**
 의 흐름으로 동작합니다. 백엔드 ReAct Agent가 이 과정을 **실제로 실행**하고, 프론트엔드가 그 과정을 화면에 시각화합니다.
 
+관련 문서는 docs 폴더에 상세히 정리되어있습니다. 
+
 ---
 
 ## 🚀 빠른 시작 (Quick Start)
