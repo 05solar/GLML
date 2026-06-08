@@ -1,0 +1,216 @@
+/* 위치 검색 화면 (지도 래퍼/검색바/컨트롤/장소 핀) */
+/* 지도를 둥근 네모 틀 안에 배치 */
+.map-wrap {
+  flex: 1;
+  min-height: 240px;
+  position: relative;
+  margin: 10px var(--pad) 4px;
+  border-radius: var(--r-lg);
+  border: 1.5px solid var(--line);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+/* 검색바 + 자동완성 드롭다운 래퍼 */
+.map-search {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 14px;
+  z-index: 12;
+}
+.map-searchbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 13px 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* 실시간 연관 검색어 목록 */
+.ac-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
+  max-height: 246px;
+  overflow-y: auto;
+}
+.ac-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.ac-item:hover,
+.ac-item:active {
+  background: var(--chip);
+}
+.ac-pin {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: var(--point-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ac-pin svg {
+  width: 15px;
+  height: 15px;
+  color: var(--point-line);
+}
+.ac-txt {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.ac-primary {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ac-secondary {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.map-searchbar svg {
+  width: 19px;
+  height: 19px;
+  color: var(--muted);
+  flex: 0 0 auto;
+}
+.map-searchbar input {
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+  width: 100%;
+  background: transparent;
+}
+.map-searchbar input::placeholder {
+  color: var(--muted);
+  font-weight: 500;
+}
+.map-layerbtn {
+  position: absolute;
+  right: 16px;
+  top: 64px;
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.map-layerbtn svg {
+  width: 20px;
+  height: 20px;
+  color: var(--ink-2);
+}
+.map-locate {
+  position: absolute;
+  right: 16px;
+  bottom: 18px;
+  z-index: 10;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.map-locate:active {
+  transform: scale(0.94);
+}
+.map-locate svg {
+  width: 22px;
+  height: 22px;
+  color: var(--point-line);
+}
+.map-locate.busy {
+  pointer-events: none;
+  opacity: 0.65;
+}
+.map-locate.busy svg {
+  animation: spin 0.8s linear infinite;
+}
+.map-scale {
+  position: absolute;
+  left: 16px;
+  bottom: 22px;
+  z-index: 10;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+.map-scale .bar {
+  width: 54px;
+  height: 6px;
+  border: 1.5px solid var(--ink-2);
+  border-top: none;
+  margin-bottom: 3px;
+}
+
+.place-pill {
+  margin: 0 var(--pad);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-card);
+}
+.place-pill .dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--point-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+.place-pill .dot svg {
+  width: 18px;
+  height: 18px;
+  color: var(--point-line);
+}
+.place-pill .nm {
+  font-size: 15px;
+  font-weight: 800;
+}
+.place-pill .ad {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 1px;
+}

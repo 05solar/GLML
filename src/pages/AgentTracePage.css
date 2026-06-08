@@ -1,0 +1,144 @@
+/* ReAct Agent 트레이스 화면 (spin/popIn keyframe은 globals.css) */
+.trace-head {
+  padding: 10px var(--pad) 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.trace-spinner {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid var(--point-soft);
+  border-top-color: var(--point);
+  animation: spin 0.8s linear infinite;
+  flex: 0 0 auto;
+}
+.trace-head .t-txt {
+  flex: 1;
+  min-width: 0;
+}
+.trace-head .t-ttl {
+  font-size: 18px;
+  font-weight: 800;
+}
+.trace-head .t-sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.trace-list {
+  padding: 14px var(--pad) 20px;
+}
+.tnode {
+  position: relative;
+  padding: 0 0 4px 30px;
+}
+.tnode .rail {
+  position: absolute;
+  left: 9px;
+  top: 6px;
+  bottom: -6px;
+  width: 2px;
+  background: var(--line);
+}
+.tnode:last-child .rail {
+  display: none;
+}
+.tnode .bullet {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.tnode.done .bullet {
+  background: var(--point);
+  border-color: var(--point);
+}
+.tnode.done .bullet svg {
+  width: 11px;
+  height: 11px;
+  color: var(--point-ink);
+}
+.tnode.active .bullet {
+  border-color: var(--point);
+}
+.tnode.active .bullet .mini {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--point);
+  animation: blink 1s ease-in-out infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+.tcard {
+  margin-bottom: 12px;
+  border-radius: 14px;
+  padding: 13px 15px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  animation: popIn 0.34s ease both;
+}
+.tcard .kind {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.tcard.thought .kind {
+  color: #8a7bd8;
+}
+.tcard.action .kind {
+  color: #1b1b1a;
+}
+.tcard.obs .kind {
+  color: var(--point-line);
+}
+.tcard .body {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-2);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.tcard .mono {
+  font-family: 'SF Mono', ui-monospace, Menlo, monospace;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 5px;
+  background: var(--chip);
+  border-radius: 7px;
+  padding: 6px 9px;
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.trace-error {
+  margin: 8px 0 0 4px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}

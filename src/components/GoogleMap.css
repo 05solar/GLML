@@ -1,0 +1,6 @@
+/* 실제 Google 지도 컨테이너 (지도 위 컨트롤은 LocationSearchPage.css) */
+.gmap {
+  position: absolute;
+  inset: 0;
+  background: #edebe4;
+}

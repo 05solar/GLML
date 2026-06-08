@@ -1,0 +1,12 @@
+# secrets
+.env
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# generated logs — 제출용 trace_log.txt 는 포함, 그 외 로그는 제외
+logs/*.txt
+!logs/trace_log.txt

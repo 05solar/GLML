@@ -1,0 +1,228 @@
+/* 추천 결과 화면 (popIn/spin keyframe은 globals.css) */
+.result-top {
+  padding: 14px var(--pad) 4px;
+}
+.result-top .eyebrow {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--point-line);
+  letter-spacing: 0.2px;
+}
+.result-top h1 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 6px 0 0;
+  letter-spacing: -0.5px;
+  text-wrap: balance;
+}
+.result-top h1 .place {
+  color: var(--ink);
+}
+.result-meta {
+  padding: 8px var(--pad) 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.tag {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-2);
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 6px 11px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+.tag b {
+  color: var(--point-line);
+}
+
+.rcard {
+  margin: 14px var(--pad) 0;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  animation: popIn 0.4s ease both;
+}
+.rcard .photo {
+  height: 138px;
+  position: relative;
+  background: linear-gradient(135deg, var(--point-tint) 0%, #f3efe2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rcard .photo .photo-emoji {
+  font-size: 58px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 6px rgba(20, 18, 10, 0.12));
+}
+.rcard .photo .photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.rcard .rank {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: var(--point);
+  color: var(--point-ink);
+  font-weight: 900;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(255, 210, 30, 0.5);
+}
+.rcard .dist-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(27, 27, 26, 0.82);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 99px;
+}
+.rcard .info {
+  padding: 15px 16px 16px;
+}
+.rcard .nm-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+.rcard .nm {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+.rcard .cat {
+  font-size: 12.5px;
+  color: var(--muted);
+  font-weight: 600;
+  flex: 0 0 auto;
+}
+.rcard .stats {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 8px;
+}
+.rcard .star {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13.5px;
+  font-weight: 800;
+}
+.rcard .star svg {
+  width: 15px;
+  height: 15px;
+  color: var(--point);
+}
+.rcard .rev {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.rcard .price {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-2);
+  margin-left: auto;
+}
+.rcard .reason {
+  margin-top: 13px;
+  background: var(--point-tint);
+  border: 1px solid var(--point-soft);
+  border-radius: 12px;
+  padding: 11px 13px;
+  display: flex;
+  gap: 9px;
+}
+.rcard .reason .ai {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: var(--point);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rcard .reason .ai svg {
+  width: 13px;
+  height: 13px;
+  color: var(--point-ink);
+}
+.rcard .reason .rtxt {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+.rcard .reason .rtxt b {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.result-empty {
+  margin: 18px var(--pad) 0;
+  padding: 18px 16px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
+  color: var(--ink-2);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.loadmore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 24px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+.loadmore .sp {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2.4px solid var(--point-soft);
+  border-top-color: var(--point);
+  animation: spin 0.7s linear infinite;
+}
+
+.result-footer {
+  flex: 0 0 auto;
+  padding: 12px var(--pad) calc(env(safe-area-inset-bottom) + 18px);
+  display: flex;
+  gap: 10px;
+  background: linear-gradient(180deg, rgba(239, 238, 234, 0) 0%, var(--bg) 30%);
+}
+.result-footer .btn-ghost {
+  flex: 1;
+}
+.result-footer .btn-primary {
+  flex: 1;
+  box-shadow: none;
+}

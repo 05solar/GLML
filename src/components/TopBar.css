@@ -1,0 +1,45 @@
+/* 상단바 + 단계 진행 표시 */
+.topbar {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  padding: 4px 14px 6px;
+}
+.iconbtn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 12px;
+  color: var(--ink);
+}
+.iconbtn:active {
+  background: rgba(0, 0, 0, 0.05);
+}
+.iconbtn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.progress-pill {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.seg {
+  width: 18px;
+  height: 4px;
+  border-radius: 2px;
+  background: #dfded7;
+  transition: all 0.35s ease;
+}
+.seg.on {
+  background: var(--point);
+  width: 24px;
+}

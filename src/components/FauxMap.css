@@ -1,0 +1,90 @@
+/* 장식용 지도 내부 (도로/블록/물/반경/핀) */
+.map {
+  position: absolute;
+  inset: 0;
+  background: #edebe4;
+  overflow: hidden;
+}
+.map-grid {
+  position: absolute;
+  inset: -40%;
+}
+.road {
+  position: absolute;
+  background: #fcfbf8;
+}
+.road.thick {
+  background: #fff;
+}
+.block {
+  position: absolute;
+  background: #e3e1d8;
+  border-radius: 3px;
+}
+.water {
+  position: absolute;
+  background: #d7e7e4;
+}
+.radius {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 210, 30, 0.26) 0%,
+    rgba(255, 210, 30, 0.14) 60%,
+    rgba(255, 210, 30, 0.04) 100%
+  );
+  border: 2px solid rgba(255, 210, 30, 0.55);
+  animation: pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+}
+.pin {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -100%);
+  z-index: 6;
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.25));
+}
+.pin svg {
+  width: 40px;
+  height: 48px;
+  display: block;
+}
+.pin .pin-shadow {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -2px);
+  width: 16px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.18);
+}
+.map-hint {
+  position: absolute;
+  left: 50%;
+  top: calc(48% - 64px);
+  transform: translateX(-50%);
+  z-index: 8;
+  background: rgba(27, 27, 26, 0.86);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
